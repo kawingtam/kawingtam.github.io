@@ -1,17 +1,554 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Ka Wing Tam Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ka Wing Tam | Portfolio</title>
+  <meta name="description" content="Portfolio website for Ka Wing Tam, featuring Python automation, web development, and machine learning projects." />
+  <style>
+    :root {
+      --bg: #fbf7fb;
+      --card: #ffffff;
+      --text: #25212a;
+      --muted: #6f6677;
+      --accent: #c65aa5;
+      --accent-dark: #9f3f82;
+      --border: #eaddea;
+      --shadow: 0 18px 45px rgba(95, 50, 92, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(251, 247, 251, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      font-size: 1.2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 22px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-dark);
+    }
+
+    .hero {
+      padding: 88px 0 70px;
+      display: grid;
+      grid-template-columns: 1.35fr 0.65fr;
+      gap: 44px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--accent-dark);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      line-height: 0.96;
+      letter-spacing: -0.07em;
+      margin-bottom: 24px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 700px;
+      margin-bottom: 28px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 18px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid var(--border);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .btn.primary {
+      background: var(--accent);
+      color: white;
+      border-color: var(--accent);
+    }
+
+    .btn.secondary {
+      background: white;
+      color: var(--accent-dark);
+    }
+
+    .profile-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 32px;
+      background: linear-gradient(135deg, #f4c1e2, #c65aa5);
+      display: grid;
+      place-items: center;
+      color: white;
+      font-size: 2.5rem;
+      font-weight: 900;
+      margin-bottom: 20px;
+    }
+
+    .profile-card h2 {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+    }
+
+    .profile-card p {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    section {
+      padding: 58px 0;
+    }
+
+    .section-heading {
+      margin-bottom: 28px;
+    }
+
+    .section-heading h2 {
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      letter-spacing: -0.05em;
+      margin-bottom: 8px;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 720px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(95, 50, 92, 0.08);
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+      font-size: 1.15rem;
+    }
+
+    .card p {
+      color: var(--muted);
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag {
+      background: white;
+      border: 1px solid var(--border);
+      color: var(--accent-dark);
+      padding: 9px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .project-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 300px;
+    }
+
+    .project-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+
+    .project-card h3 {
+      font-size: 1.25rem;
+    }
+
+    .project-label {
+      white-space: nowrap;
+      color: var(--accent-dark);
+      font-size: 0.85rem;
+      font-weight: 800;
+    }
+
+    .project-card p {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .project-card ul {
+      color: var(--muted);
+      padding-left: 18px;
+      margin-bottom: 18px;
+    }
+
+    .project-card li {
+      margin-bottom: 7px;
+    }
+
+    .project-links {
+      margin-top: auto;
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .small-link {
+      color: var(--accent-dark);
+      font-weight: 800;
+      border-bottom: 2px solid #e8bddb;
+    }
+
+    .contact-box {
+      background: linear-gradient(135deg, #ffffff, #fff0fa);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 34px;
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      max-width: 650px;
+    }
+
+    footer {
+      padding: 32px 0;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 820px) {
+      .hero,
+      .about-grid,
+      .projects-grid,
+      .contact-box {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 54px;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .contact-box {
+        display: block;
+      }
+
+      .contact-box .buttons {
+        margin-top: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Hi, I'm Ka Wing Tam</h1>
-  <p>Welcome to my portfolio.</p>
+  <header>
+    <div class="container">
+      <nav>
+        <a class="logo" href="#top">Ka Wing Tam</a>
+        <div class="nav-links" aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#skills">Skills</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
 
-  <h2>Projects</h2>
-  <ul>
-    <li>StudioDiffusion</li>
-    <li>Android Apps (Jetpack Compose)</li>
-    <li>Data Analysis Projects</li>
-  </ul>
+  <main id="top">
+    <div class="container hero">
+      <div>
+        <div class="eyebrow">Python • Automation • Data • Web Development</div>
+        <h1>Building practical tools while growing into software and data work.</h1>
+        <p>
+          I am a Computer Science student with a business background, focused on Python automation,
+          data-driven workflows, web projects, and applied machine learning. I enjoy building tools that
+          make repetitive work faster, clearer, and easier to manage.
+        </p>
+        <div class="buttons">
+          <a class="btn primary" href="#projects">View Projects</a>
+          <a class="btn secondary" href="https://github.com/kawingtam" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn secondary" href="mailto:YOUR_EMAIL_HERE">Contact Me</a>
+        </div>
+      </div>
+
+      <aside class="profile-card" aria-label="Profile summary">
+        <div class="avatar">KT</div>
+        <h2>Ka Wing Tam</h2>
+        <p>
+          Business + Computer Science background with hands-on experience in Python scripting,
+          report automation, GitHub project organization, and beginner-to-advanced technical projects.
+        </p>
+      </aside>
+    </div>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <h2>About Me</h2>
+          <p>
+            I bring a business and operations perspective into technical problem-solving. My projects show
+            how I use programming to improve productivity, organize workflows, and learn modern software tools.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <div class="card">
+            <h3>What I focus on</h3>
+            <p>
+              I enjoy Python automation, data processing, Excel workflow improvement, and building small web
+              applications that solve practical problems.
+            </p>
+          </div>
+          <div class="card">
+            <h3>What I am building toward</h3>
+            <p>
+              I am continuing to grow toward entry-level software, data, automation, and technical analyst roles
+              where I can combine problem-solving, programming, and business understanding.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Skills</h2>
+          <p>Tools and technologies I have used across coursework, personal projects, and workplace automation.</p>
+        </div>
+        <div class="skills">
+          <span class="tag">Python</span>
+          <span class="tag">Pandas</span>
+          <span class="tag">OpenPyXL</span>
+          <span class="tag">Selenium</span>
+          <span class="tag">PDF Processing</span>
+          <span class="tag">Excel Automation</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">Git</span>
+          <span class="tag">GitHub</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">SQL</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Featured Projects</h2>
+          <p>A selection of projects showing practical automation, web development, Python fundamentals, and applied machine learning.</p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="card project-card">
+            <div class="project-top">
+              <h3>Report Automation Tools</h3>
+              <span class="project-label">Python Automation</span>
+            </div>
+            <p>
+              A Python-based toolkit for streamlining financial report workflows, including report downloads,
+              PDF filtering, Excel processing, and overdraft summary generation.
+            </p>
+            <ul>
+              <li>Automates repetitive reporting tasks with Python scripts.</li>
+              <li>Processes Excel workbooks and PDF reports for cleaner workflows.</li>
+              <li>Improved productivity by reducing manual report handling steps.</li>
+            </ul>
+            <div class="project-links">
+              <a class="small-link" href="https://github.com/kawingtam/report-automation-tools" target="_blank" rel="noopener">View Repository</a>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-top">
+              <h3>StudioDiffusion</h3>
+              <span class="project-label">Deep Learning</span>
+            </div>
+            <p>
+              A school team project exploring platform-specific product photography generation using
+              segmentation-conditioned diffusion models.
+            </p>
+            <ul>
+              <li>Combined SDXL, ControlNet, SAM2, IP-Adapter, and LoRA concepts.</li>
+              <li>Supported inference testing and generated image evaluation.</li>
+              <li>Contributed to the final evaluation pipeline and CLIP-based scoring discussion.</li>
+            </ul>
+            <div class="project-links">
+              <a class="small-link" href="https://github.com/s-zx/StudioDiffusion" target="_blank" rel="noopener">View Repository</a>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-top">
+              <h3>Flashcards</h3>
+              <span class="project-label">Web App</span>
+            </div>
+            <p>
+              A bilingual Chinese-English flashcard web app designed for workplace English practice.
+            </p>
+            <ul>
+              <li>Built with JavaScript, HTML, and CSS.</li>
+              <li>Supports vocabulary review through a simple interactive interface.</li>
+              <li>Designed around practical English learning scenarios.</li>
+            </ul>
+            <div class="project-links">
+              <a class="small-link" href="https://github.com/kawingtam/flashcards" target="_blank" rel="noopener">View Repository</a>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-top">
+              <h3>Python Diaries</h3>
+              <span class="project-label">Learning Journal</span>
+            </div>
+            <p>
+              A Python learning journal documenting my progress from beginner syntax to algorithm and data structure practice.
+            </p>
+            <ul>
+              <li>Includes beginner scripts, functions, OOP basics, and pattern practice.</li>
+              <li>Documents LeetCode-style problem solving and algorithm exercises.</li>
+              <li>Shows consistent growth in Python fundamentals and logical thinking.</li>
+            </ul>
+            <div class="project-links">
+              <a class="small-link" href="https://github.com/kawingtam/python-diaries" target="_blank" rel="noopener">View Repository</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <div>
+            <h2>Let’s connect</h2>
+            <p>
+              I am interested in opportunities where I can apply Python, automation, data processing,
+              and technical problem-solving to real workflows.
+            </p>
+          </div>
+          <div class="buttons">
+            <a class="btn primary" href="mailto:kawingtam0@outlook.com">Email Me</a>
+            <a class="btn secondary" href="https://github.com/kawingtam" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn secondary" href="https://www.linkedin.com/in/kawingtam/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Ka Wing Tam. Built with HTML, CSS, and GitHub Pages.</p>
+    </div>
+  </footer>
 </body>
 </html>
