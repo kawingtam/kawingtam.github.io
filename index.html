@@ -3,52 +3,48 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kawing Tam | Financial & Data Analyst Portfolio</title>
-  <meta name="description" content="Portfolio website for Kawing Tam, highlighting financial analysis, data analysis, Python automation, Excel reporting, SQL, and business-focused analytics projects." />
+  <title>Kawing Tam</title>
+  <meta name="description" content="Kawing Tam is a data analyst with an MBA, proficient in Python, SQL, Excel, and Pandas. Turning messy data into clear business decisions." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #fbf7fb;
+      --bg: #f5f3ee;
       --card: #ffffff;
-      --text: #25212a;
-      --muted: #6f6677;
-      --accent: #c65aa5;
-      --accent-dark: #9f3f82;
-      --border: #eaddea;
-      --shadow: 0 18px 45px rgba(95, 50, 92, 0.12);
+      --text: #1a1714;
+      --muted: #6b6460;
+      --faint: #9e9893;
+      --accent: #2d5f3f;
+      --accent-light: #e8f0eb;
+      --border: rgba(30,20,10,0.10);
+      --border-strong: rgba(30,20,10,0.18);
+      --shadow: 0 18px 45px rgba(20,40,20,0.10);
     }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: 'DM Sans', sans-serif;
       background: var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
 
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
+    a { color: inherit; text-decoration: none; }
 
     .container {
       width: min(1100px, 92%);
       margin: 0 auto;
     }
 
+    /* NAV */
     header {
       position: sticky;
       top: 0;
       z-index: 10;
-      background: rgba(251, 247, 251, 0.92);
+      background: rgba(245,243,238,0.92);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
@@ -61,8 +57,7 @@
     }
 
     .logo {
-      font-weight: 800;
-      letter-spacing: -0.04em;
+      font-family: 'DM Serif Display', serif;
       font-size: 1.2rem;
     }
 
@@ -73,10 +68,9 @@
       font-size: 0.95rem;
     }
 
-    .nav-links a:hover {
-      color: var(--accent-dark);
-    }
+    .nav-links a:hover { color: var(--accent); }
 
+    /* HERO — original 2-col grid */
     .hero {
       padding: 88px 0 70px;
       display: grid;
@@ -89,28 +83,36 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 8px 12px;
-      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border: 1px solid rgba(45,95,63,0.22);
       border-radius: 999px;
-      background: #fff;
-      color: var(--accent-dark);
-      font-size: 0.9rem;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 0.88rem;
       font-weight: 700;
       margin-bottom: 22px;
     }
 
+
     h1 {
-      font-size: clamp(2.5rem, 6vw, 5rem);
-      line-height: 0.96;
-      letter-spacing: -0.07em;
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.5rem, 6vw, 4.8rem);
+      line-height: 1.01;
+      letter-spacing: -0.04em;
       margin-bottom: 24px;
     }
 
+    h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
     .hero p {
-      font-size: 1.1rem;
+      font-size: 1.08rem;
       color: var(--muted);
       max-width: 700px;
       margin-bottom: 28px;
+      line-height: 1.75;
     }
 
     .buttons {
@@ -123,10 +125,11 @@
       display: inline-flex;
       justify-content: center;
       align-items: center;
-      padding: 12px 18px;
+      padding: 12px 20px;
       border-radius: 999px;
-      font-weight: 700;
-      border: 1px solid var(--border);
+      font-weight: 600;
+      font-size: 0.93rem;
+      border: 1px solid var(--border-strong);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
@@ -143,9 +146,10 @@
 
     .btn.secondary {
       background: white;
-      color: var(--accent-dark);
+      color: var(--accent);
     }
 
+    /* PROFILE CARD — original style */
     .profile-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -158,23 +162,31 @@
       width: 130px;
       height: 130px;
       border-radius: 32px;
-      background: linear-gradient(135deg, #f4c1e2, #c65aa5);
+      background: linear-gradient(135deg, #a8d5b5, #2d5f3f);
       display: grid;
       place-items: center;
       color: white;
+      font-family: 'DM Serif Display', serif;
       font-size: 2.5rem;
-      font-weight: 900;
       margin-bottom: 20px;
     }
 
     .profile-card h2 {
+      font-family: 'DM Serif Display', serif;
       font-size: 1.4rem;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
+    }
+
+    .role-line {
+      color: var(--accent);
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 12px;
     }
 
     .profile-card p {
       color: var(--muted);
-      font-size: 0.98rem;
+      font-size: 0.96rem;
     }
 
     .quick-facts {
@@ -183,27 +195,25 @@
       display: grid;
       gap: 10px;
       color: var(--muted);
-      font-size: 0.95rem;
+      font-size: 0.93rem;
     }
 
     .quick-facts li::before {
       content: "•";
-      color: var(--accent-dark);
+      color: var(--accent);
       font-weight: 900;
       margin-right: 8px;
     }
 
-    section {
-      padding: 58px 0;
-    }
+    /* SECTIONS */
+    section { padding: 58px 0; }
 
-    .section-heading {
-      margin-bottom: 28px;
-    }
+    .section-heading { margin-bottom: 28px; }
 
     .section-heading h2 {
+      font-family: 'DM Serif Display', serif;
       font-size: clamp(1.8rem, 4vw, 2.6rem);
-      letter-spacing: -0.05em;
+      letter-spacing: -0.04em;
       margin-bottom: 8px;
     }
 
@@ -212,6 +222,7 @@
       max-width: 720px;
     }
 
+    /* ABOUT — original 3-col grid */
     .about-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -223,18 +234,23 @@
       border: 1px solid var(--border);
       border-radius: 24px;
       padding: 24px;
-      box-shadow: 0 10px 30px rgba(95, 50, 92, 0.08);
+      box-shadow: 0 10px 30px rgba(20,40,20,0.06);
+    }
+
+    .card-icon {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
     }
 
     .card h3 {
+      font-weight: 600;
+      font-size: 1.08rem;
       margin-bottom: 10px;
-      font-size: 1.15rem;
     }
 
-    .card p {
-      color: var(--muted);
-    }
+    .card p { color: var(--muted); font-size: 0.93rem; }
 
+    /* SKILLS */
     .skills {
       display: flex;
       flex-wrap: wrap;
@@ -243,14 +259,22 @@
 
     .tag {
       background: white;
-      border: 1px solid var(--border);
-      color: var(--accent-dark);
-      padding: 9px 12px;
+      border: 1px solid var(--border-strong);
+      color: var(--text);
+      padding: 9px 14px;
       border-radius: 999px;
-      font-weight: 700;
-      font-size: 0.92rem;
+      font-weight: 500;
+      font-size: 0.9rem;
     }
 
+    .tag.core {
+      background: var(--accent-light);
+      border-color: rgba(45,95,63,0.22);
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* PROJECTS — original 2-col grid */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
@@ -271,46 +295,82 @@
     }
 
     .project-card h3 {
-      font-size: 1.25rem;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.3rem;
     }
 
     .project-label {
       white-space: nowrap;
-      color: var(--accent-dark);
-      font-size: 0.85rem;
-      font-weight: 800;
+      color: var(--accent);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
     }
 
-    .project-card p {
+    .project-card > p {
       color: var(--muted);
-      margin-bottom: 16px;
+      margin-bottom: 14px;
+      font-size: 0.93rem;
+      line-height: 1.7;
     }
 
     .project-card ul {
-      color: var(--muted);
-      padding-left: 18px;
-      margin-bottom: 18px;
+      padding-left: 0;
+      margin-bottom: 14px;
+      list-style: none;
+      display: grid;
+      gap: 7px;
     }
 
     .project-card li {
-      margin-bottom: 7px;
+      display: flex;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .project-card li::before {
+      content: '→';
+      color: var(--accent);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .tech-row {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-bottom: 14px;
+    }
+
+    .tech-pill {
+      font-size: 0.78rem;
+      color: var(--faint);
+      background: var(--bg);
+      padding: 3px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
     }
 
     .project-links {
       margin-top: auto;
       display: flex;
       gap: 12px;
-      flex-wrap: wrap;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
     }
 
     .small-link {
-      color: var(--accent-dark);
-      font-weight: 800;
-      border-bottom: 2px solid #e8bddb;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.9rem;
+      border-bottom: 2px solid rgba(45,95,63,0.2);
     }
 
+    /* CONTACT — original side-by-side box */
     .contact-box {
-      background: linear-gradient(135deg, #ffffff, #fff0fa);
+      background: linear-gradient(135deg, #ffffff, #f0f5f1);
       border: 1px solid var(--border);
       border-radius: 30px;
       padding: 34px;
@@ -321,270 +381,270 @@
       align-items: center;
     }
 
+    .contact-box h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.8rem;
+      letter-spacing: -0.03em;
+      margin-bottom: 8px;
+    }
+
     .contact-box p {
       color: var(--muted);
-      max-width: 650px;
+      max-width: 580px;
+      font-size: 0.97rem;
     }
 
     footer {
       padding: 32px 0;
-      color: var(--muted);
+      color: var(--faint);
       border-top: 1px solid var(--border);
       text-align: center;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
     }
 
     @media (max-width: 820px) {
-      .hero,
-      .about-grid,
-      .projects-grid,
-      .contact-box {
+      .hero, .about-grid, .projects-grid {
         grid-template-columns: 1fr;
       }
-
-      .hero {
-        padding-top: 54px;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .contact-box {
-        display: block;
-      }
-
-      .contact-box .buttons {
-        margin-top: 20px;
-      }
+      .hero { padding-top: 54px; display: flex; flex-direction: column; }
+      .nav-links { display: none; }
+      .contact-box { display: block; }
+      .contact-box .buttons { margin-top: 20px; }
+      h1 { font-size: 2.6rem; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <nav>
-        <a class="logo" href="#top">Kawing Tam</a>
-        <div class="nav-links" aria-label="Main navigation">
-          <a href="#about">About</a>
-          <a href="#skills">Skills</a>
-          <a href="#projects">Projects</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </nav>
-    </div>
-  </header>
 
-  <main id="top">
-    <div class="container hero">
-      <div>
-        <div class="eyebrow">Financial Analysis • Data Analytics • Python Automation • Reporting</div>
-        <h1>Turning financial workflows into clearer, faster, data-driven insights.</h1>
+<header>
+  <div class="container">
+    <nav>
+      <a class="logo" href="#top">Kawing Tam</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <div class="container hero">
+    <div>
+      <div class="eyebrow">MCS @ Georgia Tech • Financial Analyst @ Stanford University</div>
+
+      <h1>I turn <em>messy data</em> into clear decisions.</h1>
+      <p>
+        MBA-trained data analyst with hands-on experience in Python, SQL, Pandas, and Excel automation.
+        I specialize in building reporting pipelines, cleaning datasets, and delivering analysis that
+        business teams can actually act on, combining financial context with technical execution.
+      </p>
+      <div class="buttons">
+        <a class="btn primary" href="#projects">See My Work</a>
+        <a class="btn secondary" href="https://www.linkedin.com/in/kawingtam/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+
+    <aside class="profile-card" aria-label="Profile summary">
+      <div class="avatar">KT</div>
+      <h2>Kawing Tam</h2>
+      <div class="role-line">Data Analyst · Python · SQL · Excel</div>
+      <p>
+        Business-trained analyst combining an MBA foundation with Python and SQL skills.
+        I build tools that eliminate manual reporting steps and surface insights faster.
+      </p>
+      <ul class="quick-facts">
+        <li>MBA + CS background</li>
+        <li>Python, SQL, Excel automation</li>
+      </ul>
+    </aside>
+  </div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="section-heading">
+      <h2>About Me</h2>
+      <p>
+        I bridge business questions and technical solutions.
+      </p>
+    </div>
+
+    <div class="about-grid">
+      <div class="card about-card">
+        <div class="card-icon">⚙️</div>
+        <h3>Workflow Automation</h3>
         <p>
-          I am a business-trained analyst with a strong foundation in finance, operations, and computer science.
-          I use Python, Excel, SQL, and automation to streamline reporting, improve data quality, and support
-          better decision-making for financial and business teams.
+          I replace repetitive manual steps such as file handling, report downloads, PDF processing,
+          and summary report generation with Python scripts that run reliably and save hours of work.
         </p>
-        <div class="buttons">
-          <a class="btn primary" href="#projects">View Projects</a>
-          <a class="btn secondary" href="https://github.com/kawingtam" target="_blank" rel="noopener">GitHub</a>
-          <a class="btn secondary" href="mailto:kawingtam0@outlook.com">Contact Me</a>
-        </div>
       </div>
 
-      <aside class="profile-card" aria-label="Profile summary">
-        <div class="avatar">KT</div>
-        <h2>Kawing Tam</h2>
+      <div class="card about-card">
+        <div class="card-icon">📈</div>
+        <h3>Data Analysis & Reporting</h3>
         <p>
-          Financial and data analyst candidate with an MBA, business administration background, and hands-on
-          experience building Python automation tools for reporting, Excel processing, PDF workflows, and data analysis.
+          I clean, transform, and summarize data using Python, SQL, and Excel, then present findings
+          in reports that stakeholders can understand and act on.
         </p>
-        <ul class="quick-facts">
-          <li>MBA + Business Administration background</li>
-          <li>Python, Excel, SQL, and reporting automation</li>
-          <li>Interested in Senior Financial Analyst and Data Analyst roles</li>
-        </ul>
-      </aside>
-    </div>
+      </div>
 
-    <section id="about">
-      <div class="container">
-        <div class="section-heading">
-          <h2>About Me</h2>
+      <div class="card about-card">
+        <div class="card-icon">🔍</div>
+        <h3>Business-Grounded SQL & Excel</h3>
+        <p>
+          I query databases, build Excel models, and create reporting with every output
+          tied back to the business question being answered.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-heading">
+        <h2>Featured Projects</h2>
+        <p>Each project shows a real problem, a practical solution, and the tools used to get there.</p>
+      </div>
+      <div class="projects-grid">
+
+        <article class="card project-card">
+          <div class="project-top">
+            <h3>Report Automation Toolkit</h3>
+            <span class="project-label">⭐ Featured</span>
+          </div>
           <p>
-            I combine business judgment with technical problem-solving. My work focuses on using data,
-            automation, and financial reporting tools to reduce manual effort, improve accuracy, and make
-            recurring workflows easier to manage.
+            End-to-end Python toolkit that automates financial report downloads, PDF filtering,
+            Excel processing, balance review, and overdraft summary generation, replacing a
+            fully manual daily workflow.
+          </p>
+          <ul>
+            <li>Eliminated repetitive file handling using Selenium and Python scripting</li>
+            <li>Used OpenPyXL to read, process, and write structured Excel outputs automatically</li>
+            <li>Centralised balance and overdraft logic into reusable, maintainable scripts</li>
+          </ul>
+          <div class="tech-row">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">Selenium</span>
+            <span class="tech-pill">OpenPyXL</span>
+            <span class="tech-pill">PDF</span>
+            <span class="tech-pill">Excel</span>
+          </div>
+          <div class="project-links">
+            <a class="small-link" href="https://github.com/kawingtam/report-automation-tools" target="_blank" rel="noopener">View Repository ↗</a>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-top">
+            <h3>StudioDiffusion</h3>
+            <span class="project-label">Analytics + ML</span>
+          </div>
+          <p>
+            Team research project exploring AI-generated product images using segmentation-conditioned
+            diffusion models. Contributed to inference testing and metric-based image evaluation.
+          </p>
+          <ul>
+            <li>Evaluated model outputs using quantitative metrics and systematic comparison</li>
+            <li>Applied analytical thinking across SDXL, ControlNet, and LoRA configurations</li>
+            <li>Implemented CLIP-based aesthetic alignment scoring to measure how well generated images performance</li>
+          </ul>
+          <div class="tech-row">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">ML</span>
+            <span class="tech-pill">SDXL</span>
+            <span class="tech-pill">Model Evaluation</span>
+          </div>
+          <div class="project-links">
+            <a class="small-link" href="https://github.com/s-zx/StudioDiffusion" target="_blank" rel="noopener">View Repository ↗</a>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-top">
+            <h3>Bilingual Flashcard App</h3>
+            <span class="project-label">Web App</span>
+          </div>
+          <p>
+            Chinese-English vocabulary web app built for workplace English practice.
+            A focused project demonstrating user-centered design and the ability to ship
+            something complete and polished independently.
+          </p>
+          <ul>
+            <li>Built interactive card-flip logic in vanilla JavaScript</li>
+            <li>Designed a clean, accessible UI with HTML and CSS</li>
+            <li>Scoped, built, and shipped a complete small product solo</li>
+          </ul>
+          <div class="tech-row">
+            <span class="tech-pill">JavaScript</span>
+            <span class="tech-pill">HTML</span>
+            <span class="tech-pill">CSS</span>
+          </div>
+          <div class="project-links">
+            <a class="small-link" href="https://github.com/kawingtam/flashcards" target="_blank" rel="noopener">View Repository ↗</a>
+          </div>
+        </article>
+
+        <article class="card project-card">
+          <div class="project-top">
+            <h3>Python Diaries</h3>
+            <span class="project-label">Python Learning</span>
+          </div>
+          <p>
+            A documented learning log showing consistent growth from Python fundamentals to
+            data manipulation, OOP, and algorithm practice, publicly tracked on GitHub.
+          </p>
+          <ul>
+            <li>Covers functions, OOP, data structures, and LeetCode-style problem solving</li>
+            <li>Shows learning discipline and technical curiosity as a sustained habit</li>
+            <li>Foundational to the Pandas, data cleaning, and automation work above</li>
+          </ul>
+          <div class="tech-row">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">Algorithms</span>
+            <span class="tech-pill">OOP</span>
+          </div>
+          <div class="project-links">
+            <a class="small-link" href="https://github.com/kawingtam/python-diaries" target="_blank" rel="noopener">View Repository ↗</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <div>
+          <h2>☕️  Let's connect!</h2>
+          <p>
+            You made it to the end! Coffee’s on me. 
           </p>
         </div>
-
-        <div class="about-grid">
-          <div class="card">
-            <h3>Finance & reporting mindset</h3>
-            <p>
-              I understand the importance of clean reports, accurate calculations, and clear communication
-              when supporting financial and operational decisions.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Data analysis toolkit</h3>
-            <p>
-              I work with Python, Pandas, Excel, SQL, and visualization-ready datasets to clean, transform,
-              analyze, and summarize business information.
-            </p>
-          </div>
-          <div class="card">
-            <h3>Automation impact</h3>
-            <p>
-              I build practical tools that reduce repetitive steps, speed up reporting, and improve productivity
-              in day-to-day financial and data workflows.
-            </p>
-          </div>
+        <div class="buttons">
+          <a class="btn primary" href="mailto:kawingtam0@outlook.com">Email Me</a>
+          <a class="btn secondary" href="https://github.com/kawingtam" target="_blank" rel="noopener">GitHub ↗</a>
+          <a class="btn secondary" href="https://www.linkedin.com/in/kawingtam/" target="_blank" rel="noopener">LinkedIn ↗</a>
         </div>
       </div>
-    </section>
-
-    <section id="skills">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Skills</h2>
-          <p>Tools and strengths I bring to financial analyst, data analyst, and reporting automation roles.</p>
-        </div>
-        <div class="skills">
-          <span class="tag">Financial Analysis</span>
-          <span class="tag">Data Analysis</span>
-          <span class="tag">Reporting Automation</span>
-          <span class="tag">Excel</span>
-          <span class="tag">Advanced Excel Workflows</span>
-          <span class="tag">Python</span>
-          <span class="tag">Pandas</span>
-          <span class="tag">OpenPyXL</span>
-          <span class="tag">SQL</span>
-          <span class="tag">Data Cleaning</span>
-          <span class="tag">PDF Processing</span>
-          <span class="tag">Selenium</span>
-          <span class="tag">Business Operations</span>
-          <span class="tag">Process Improvement</span>
-          <span class="tag">Git</span>
-          <span class="tag">GitHub</span>
-          <span class="tag">HTML</span>
-          <span class="tag">CSS</span>
-          <span class="tag">JavaScript</span>
-          <span class="tag">Machine Learning</span>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="container">
-        <div class="section-heading">
-          <h2>Featured Projects</h2>
-          <p>A selection of projects showing financial workflow automation, data processing, business problem-solving, and technical learning.</p>
-        </div>
-
-        <div class="projects-grid">
-          <article class="card project-card">
-            <div class="project-top">
-              <h3>Report Automation Tools</h3>
-              <span class="project-label">Finance Automation</span>
-            </div>
-            <p>
-              A Python-based toolkit created to streamline financial reporting workflows, including report downloads,
-              PDF filtering, Excel processing, balance review, and overdraft summary generation.
-            </p>
-            <ul>
-              <li>Automates repetitive reporting steps that previously required manual review and file handling.</li>
-              <li>Uses Python, Selenium, OpenPyXL, and PDF processing to support cleaner reporting workflows.</li>
-              <li>Improves productivity by reducing manual report preparation time and making outputs easier to review.</li>
-            </ul>
-            <div class="project-links">
-              <a class="small-link" href="https://github.com/kawingtam/report-automation-tools" target="_blank" rel="noopener">View Repository</a>
-            </div>
-          </article>
-
-
-          <article class="card project-card">
-            <div class="project-top">
-              <h3>Flashcards</h3>
-              <span class="project-label">Web App</span>
-            </div>
-            <p>
-              A bilingual Chinese-English flashcard web app designed for workplace English practice and self-paced review.
-            </p>
-            <ul>
-              <li>Built with JavaScript, HTML, and CSS.</li>
-              <li>Creates a simple interactive learning experience for vocabulary practice.</li>
-              <li>Demonstrates front-end fundamentals and user-centered project design.</li>
-            </ul>
-            <div class="project-links">
-              <a class="small-link" href="https://github.com/kawingtam/flashcards" target="_blank" rel="noopener">View Repository</a>
-            </div>
-          </article>
-
-          <article class="card project-card">
-            <div class="project-top">
-              <h3>StudioDiffusion</h3>
-              <span class="project-label">Analytics + ML</span>
-            </div>
-            <p>
-              A team project exploring product image generation and evaluation using segmentation-conditioned diffusion models.
-            </p>
-            <ul>
-              <li>Worked with deep learning concepts including SDXL, ControlNet, SAM2, IP-Adapter, and LoRA.</li>
-              <li>Supported inference testing, image evaluation, and final scoring discussion.</li>
-              <li>Strengthened analytical thinking through model evaluation and metric-based comparison.</li>
-            </ul>
-            <div class="project-links">
-              <a class="small-link" href="https://github.com/s-zx/StudioDiffusion" target="_blank" rel="noopener">View Repository</a>
-            </div>
-          </article>
-
-          <article class="card project-card">
-            <div class="project-top">
-              <h3>Python Diaries</h3>
-              <span class="project-label">Python Learning</span>
-            </div>
-            <p>
-              A Python learning journal documenting steady growth from programming fundamentals to problem-solving practice.
-            </p>
-            <ul>
-              <li>Includes beginner scripts, functions, object-oriented programming, and pattern practice.</li>
-              <li>Documents LeetCode-style exercises and algorithm problem solving.</li>
-              <li>Shows consistent learning, technical curiosity, and Python foundation building.</li>
-            </ul>
-            <div class="project-links">
-              <a class="small-link" href="https://github.com/kawingtam/python-diaries" target="_blank" rel="noopener">View Repository</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <div class="contact-box">
-          <div>
-            <h2>Let’s connect</h2>
-            <p>
-              I am interested in Senior Financial Analyst, Data Analyst, and business analytics opportunities
-              where I can apply financial analysis, Python automation, Excel reporting, SQL, and process improvement
-              to real business workflows.
-            </p>
-          </div>
-          <div class="buttons">
-            <a class="btn primary" href="mailto:kawingtam0@outlook.com">Email Me</a>
-            <a class="btn secondary" href="https://github.com/kawingtam" target="_blank" rel="noopener">GitHub</a>
-            <a class="btn secondary" href="https://www.linkedin.com/in/kawingtam/" target="_blank" rel="noopener">LinkedIn</a>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>© 2026 Kawing Tam. Built with HTML, CSS, and GitHub Pages.</p>
     </div>
-  </footer>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <p>© 2026 Kawing Tam · Data Analyst · Built with HTML, CSS & GitHub Pages</p>
+  </div>
+</footer>
+
 </body>
 </html>
